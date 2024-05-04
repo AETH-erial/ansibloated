@@ -58,3 +58,12 @@ docs/_build/
 # PyBuilder
 target/
 
+
+# virtual env
+venv/
+
+
+inventory
+host_vars/
+
+

@@ -1,0 +1,10 @@
+---
+- name: "00: PRE-TASK clone dotfiles"
+
+- name: "10: PRE-TASK clone wallpapers"
+
+- name: "20: CREATE USER"
+
+- name: "30: INSTALL PACKAGES"
+
+- name: "40: SYSTEM CONFIGURATION NONSENSE"
