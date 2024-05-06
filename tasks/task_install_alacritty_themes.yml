@@ -1,0 +1,12 @@
+---
+- name: "10: Create alacritty themes directory"
+  ansible.builtin.file:
+    path: "/home/{{ system_user }}/.config/alacritty/themes"
+    state: "directory"
+    recurse: True
+  
+- name: "20: Clone the alacritty themes"
+  ansible.builtin.git:
+    repo: "https://github.com/alacritty/alacritty-theme.git"
+    dest: "/home/{{ system_user }}/.config/alacritty/themes"
+

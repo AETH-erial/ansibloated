@@ -1,0 +1,19 @@
+---
+- name: "10: Create user account"
+  ansible.builtin.user:
+    name: "aeth"
+    shell: "/bin/zsh"
+    groups: "wheel"
+    append: "yes"
+    generate_ssh_key: "yes"
+    ssh_key_bits: 2048
+    ssh_key_type: "ed25519"
+    ssh_key_file: ".ssh/id_ed25519"
+
+
+- name: "20: Set user password"
+  ansible.builtin.user:
+    name: "aeth"
+    update_password: "always"
+    password: "{{ domain_wide_password|password_hash('sha512') }}"
+

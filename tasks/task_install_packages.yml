@@ -1,0 +1,18 @@
+---
+- name: "10: Determine needed system packages"
+  ansible.builtin.set_fact:
+    packages: "{{ lookup('ansible.builtin.fule', '{{ item }}') | trim }}"
+  with_first_found:
+    - "files/{{ machine_type }}/{{ use_case }}/packages.txt"
+    - "files/{{ machine_type }}/packages.txt"
+    - "files/packages.txt"
+
+- name: "20: Install packages"
+  become: True
+  ansible.builtin.packages:
+    name: "{{ _package_name }}" 
+    state: "present"
+  loop: "{{ packages.splitlines() }}"
+  loop_control:
+    loop_var: "_package_name"
+

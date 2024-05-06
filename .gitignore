@@ -67,3 +67,7 @@ inventory
 host_vars/
 
 
+temp_*
+
+inventory*
+

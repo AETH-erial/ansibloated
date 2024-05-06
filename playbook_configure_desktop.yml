@@ -1,10 +1,19 @@
 ---
-- name: "00: PRE-TASK clone dotfiles"
+- name: "Configuring desktops"
+  hosts: "workstations"
+  pre_tasks:
+    - name: "00: PRE-TASK clone dotfiles"
+      ansible.builtin.include_tasks: "tasks/task_clone_dotfiles.yml"
 
-- name: "10: PRE-TASK clone wallpapers"
+    - name: "10: PRE-TASK clone wallpapers"
+      ansible.builtin.include_tasks: "tasks/task_clone_wallpaper.yml"
 
-- name: "20: CREATE USER"
+  tasks:
+    - name: "00: Install vim plug manager"
+      - ansible.builtin.include_tasks: "tasks/task_install_vimplug.yml"
+    
+    - name: "10: INSTALL PACKAGES"
+      ansible.builtin.include_tasks: "tasks/task_install_packages.yml"
 
-- name: "30: INSTALL PACKAGES"
-
-- name: "40: SYSTEM CONFIGURATION NONSENSE"
+    - name: "20: SYSTEM CONFIGURATION NONSENSE"
+      ansible.builtin.include_tasks: "tasks/task_system_configuration_nonsense.yml"
