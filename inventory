@@ -1,0 +1,15 @@
+---
+workstations:
+  hosts:
+    voodoo-box.void:
+    BLACKMESA.void:
+virtualization:
+  hosts:
+    adeptus-mechanicus.void:
+    matsumoto.void:
+dns_servers:
+  hosts:
+    minas-tirith.void:
+webservers:
+  hosts:
+    aetherial.dev:

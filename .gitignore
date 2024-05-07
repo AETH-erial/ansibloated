@@ -63,13 +63,10 @@ target/
 venv/
 
 
-inventory
 host_vars/
 
 
 temp_*
 
-inventory*
 
-ansible.cfg
 
