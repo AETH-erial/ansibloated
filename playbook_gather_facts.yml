@@ -1,0 +1,11 @@
+---
+- name: "Gather facts playbook"
+  hosts: "workstations"
+  tasks:
+    - name: "gathering facts"
+      ansible.builtin.gather_facts:
+
+    - name: "debug"
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts }}"
+
