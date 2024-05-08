@@ -6,7 +6,6 @@ go
 rust
 make
 pulseaudio
-nvim
 zsh
 wireguard-tools
 wayland
@@ -19,4 +18,3 @@ thunderbird
 vlc
 yay
 vscodium
-NetworkManager

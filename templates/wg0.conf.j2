@@ -1,0 +1,8 @@
+[Interface]
+Address = {{ ansible_facts['vpn_network_address'] }}
+SaveConfig = true
+ListenPort = {{ ansible_facts['vpn_server_port'] }}
+PrivateKey = {{ ansible_facts['vpn_private_key_content'] }}
+PostUp     = firewall-cmd --zone=public --add-port {{ ansible_facts['vpn_server_port'] }}/udp && firewall-cmd --zone=public --add-masquerade
+PostDown   = firewall-cmd --zone=public --remove-port {{ ansible_facts['vpn_server_port'] }}/udp && firewall-cmd --zone=public --remove-masquerade
+

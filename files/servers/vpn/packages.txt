@@ -1,0 +1,4 @@
+epel-release
+elrepo-release 
+kmod-wireguard
+wireguard-tools
