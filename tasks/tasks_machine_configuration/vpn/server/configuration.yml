@@ -36,4 +36,20 @@
   ansible.builtin.file:
     path: "/etc/wireguard/privatekey"
     mode: "0600"
-  
+
+
+- name: "60: Start the wireguard server"
+  become: True
+  ansible.builtin.shell:
+    cmd: "wg-quick up wg0"
+
+- name: "70: Enable IP forwarding"
+  become: True
+ ansible.builtin.sysctl:
+    name: "net.ipv4.ip_forward"
+    value: "1"
+    sysctl_set: "yes"
+    state: "present"
+    reload: "yes"
+
+

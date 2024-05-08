@@ -1,0 +1,8 @@
+---
+- name: "00: Determine Machine Configuration Task Set"
+  ansible.builtin.include_tasks: "{{ _tasks }}"
+  with_first_found:
+    - "tasks/tasks_machine_configuration/{{ machine_type }}/{{ machine_relationship }}/configuration.yml"
+    - "tasks/tasks_machine_configuration/{{ machine_type }}/configuration.yml"
+  loop_control:
+    loop_var: "_tasks"

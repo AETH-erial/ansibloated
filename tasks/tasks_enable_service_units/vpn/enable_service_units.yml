@@ -1,0 +1,6 @@
+---
+- name: "00: Start the Wireguard service at boot"
+  ansible.builtin.systemd_service:
+    state: "started"
+    name: "wg-quick@wg0"
+    enabled: True
