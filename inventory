@@ -3,6 +3,7 @@ workstations:
   hosts:
     voodoo-box.void:
     BLACKMESA.void:
+    spit-wizard.void:
 virtualization:
   hosts:
     adeptus-mechanicus.void:

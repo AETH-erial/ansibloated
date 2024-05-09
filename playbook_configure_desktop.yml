@@ -6,17 +6,14 @@
       ansible.builtin.gather_facts:
 
     - name: "00: PRE-TASK clone dotfiles"
-      ansible.builtin.include_tasks: "tasks/task_clone_dotfiles.yml"
-
-    - name: "10: PRE-TASK clone wallpapers"
-      ansible.builtin.include_tasks: "tasks/task_clone_wallpaper.yml"
+      ansible.builtin.include_tasks: "tasks/tasks_clone_dotfiles.yml"
 
   tasks:
     - name: "00: Install vim plug manager"
-      ansible.builtin.include_tasks: "tasks/task_install_vimplug.yml"
+      ansible.builtin.include_tasks: "tasks/tasks_install_vimplug.yml"
     
     - name: "10: INSTALL PACKAGES"
-      ansible.builtin.include_tasks: "tasks/task_install_packages.yml"
+      ansible.builtin.include_tasks: "tasks/tasks_install_packages.yml"
 
     - name: "20: SYSTEM CONFIGURATION NONSENSE"
-      ansible.builtin.include_tasks: "tasks/task_system_configuration_nonsense.yml"
+      ansible.builtin.include_tasks: "tasks/tasks_system_configuration_nonsense.yml"
