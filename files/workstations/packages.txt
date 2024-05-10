@@ -15,7 +15,6 @@ kaddressbook
 korganizer
 thunderbird
 vlc
-vscodium
 alsa-utils
 pipewire
 pipewire-audio
