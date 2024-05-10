@@ -1,11 +1,9 @@
 sway
-pavucontrol
 dhcp
 alacritty
 go
 rust
 make
-pulseaudio
 zsh
 wireguard-tools
 wayland
@@ -18,3 +16,11 @@ thunderbird
 vlc
 yay
 vscodium
+alsa-utils
+pipewire
+pipewire-audio
+pipewire-alsa
+wireplumber
+alsa-firmware
+htop
+nmap

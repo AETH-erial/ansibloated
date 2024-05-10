@@ -1,0 +1,17 @@
+---
+- name: "Install Go Packages"
+  ansible.builtin.set_fact:
+    packages: "{{ lookup('ansible.builtin.file', '{{ item }}') | trim }}"
+  with_first_found:
+    - "files/{{ machine_type }}/{{ use_case }}/go.txt"
+    - "files/{{ machine_type }}/go.txt"
+    - "files/go.txt"
+
+- name: "20: Install packages"
+  become: True
+  ansible.builtin.command: "go install {{ _go_bin }}"
+  loop: "{{ packages.splitlines() }}"
+  loop_control:
+    loop_var: "_go_bin"
+
+  
