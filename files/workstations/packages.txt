@@ -1,4 +1,5 @@
 sway
+swaybg
 pavucontrol
 dhcp
 alacritty
@@ -16,5 +17,5 @@ kaddressbook
 korganizer
 thunderbird
 vlc
-yay
-vscodium
+bind
+git
