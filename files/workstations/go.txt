@@ -1,3 +1,3 @@
 github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
-git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu
-git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu-web
+git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu@develop
+git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu-web@develop

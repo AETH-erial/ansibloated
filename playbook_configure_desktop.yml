@@ -14,6 +14,9 @@
     
     - name: "00: Install vim plug manager"
       ansible.builtin.include_tasks: "tasks/tasks_install_vimplug.yml"
-    
+
+    - name: "40: Install go binaries"
+      ansible.builtin.include_tasks: "tasks/tasks_go_packages.yml"
+
     - name: "20: SYSTEM CONFIGURATION NONSENSE"
       ansible.builtin.include_tasks: "tasks/tasks_machine_configuration.yml"
