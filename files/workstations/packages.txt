@@ -1,9 +1,5 @@
 sway
-<<<<<<< HEAD
-=======
 swaybg
-pavucontrol
->>>>>>> e7f832f (merging)
 dhcp
 alacritty
 go
@@ -19,8 +15,6 @@ kaddressbook
 korganizer
 thunderbird
 vlc
-<<<<<<< HEAD
-yay
 vscodium
 alsa-utils
 pipewire
@@ -30,7 +24,7 @@ wireplumber
 alsa-firmware
 htop
 nmap
-=======
 bind
 git
->>>>>>> e7f832f (merging)
+bind
+git
