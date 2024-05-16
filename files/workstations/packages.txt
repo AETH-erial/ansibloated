@@ -24,3 +24,6 @@ wireplumber
 alsa-firmware
 htop
 nmap
+zaproxy
+jwt-cli
+wireshark-qt

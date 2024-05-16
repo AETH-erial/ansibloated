@@ -4,6 +4,7 @@ workstations:
     voodoo-box.void:
     BLACKMESA.void:
     spit-wizard.void:
+    localhost:
 virtualization:
   hosts:
     adeptus-mechanicus.void:

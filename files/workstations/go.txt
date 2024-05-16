@@ -1,3 +1,6 @@
 github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu
 git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu-web
+github.com/projectdiscovery/katana/cmd/katana@latest
+github.com/OJ/gobuster/v3@latest
+github.com/ffuf/ffuf/v2@latest
