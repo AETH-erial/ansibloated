@@ -1,4 +1,5 @@
 sway
+swaybg
 dhcp
 alacritty
 go
@@ -14,8 +15,6 @@ kaddressbook
 korganizer
 thunderbird
 vlc
-yay
-vscodium
 alsa-utils
 pipewire
 pipewire-audio
@@ -24,6 +23,13 @@ wireplumber
 alsa-firmware
 htop
 nmap
+<<<<<<< HEAD
 zaproxy
 jwt-cli
 wireshark-qt
+=======
+bind
+git
+bind
+git
+>>>>>>> d040f780e55b8b900b65778e713f3943282c87eb

@@ -1,0 +1,54 @@
+---
+- name: "00: Clone the dotfiles"
+  ansible.builtin.git:
+    repo: "{{ dotfile_repo }}"
+    dest: "/home/{{ system_user }}/.config/dotfiles"
+
+- name: "05: Set fact for dotfile home"
+  ansible.builtin.set_fact:
+    dotfiles: "/home/{{ system_user }}/.config/dotfiles"
+
+- name: "10: Move them to their appropriate locations"
+  ansible.builtin.copy:
+    src: "{{ dotfiles }}/zshrc"
+    dest: "/home/{{ system_user }}/.zshrc"
+    remote_src: "yes"
+    backup: True
+
+- name: "20: Move alacritty config"
+  ansible.builtin.copy:
+    src: "{{ dotfiles }}/alacritty.yml"
+    remote_src: "yes"
+    dest: "/home/{{ system_user }}/.config/alacritty/"
+    backup: True
+
+- name: "30: Move sway config"
+  ansible.builtin.copy:
+    src: "{{ dotfiles }}/sway/config"
+    remote_src: "yes"
+    dest: "/home/{{ system_user }}/.config/sway/"
+    backup: True
+
+- name: "40: move vimrc"
+  ansible.builtin.copy:
+    src: "{{ dotfiles }}/vimrc"
+    remote_src: "yes"
+    dest: "/home/{{ system_user }}/.vimrc"
+    backup: True
+
+- name: "50: move wallpaper"
+  ansible.builtin.copy:
+    remote_src: "yes"
+    src: "{{ dotfiles }}/_dark_disco.jpeg"
+    dest: "/home/{{ system_user }}/Pictures/wallpapers/"
+
+- name: "60: Move environment file into etc"
+  become: True
+  ansible.builtin.copy:
+    remote_src: "yes"
+    src: "{{ dotfiles }}/environment"
+    dest: "/etc/environment"
+    backup: True
+
+
+
