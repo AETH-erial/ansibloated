@@ -4,4 +4,3 @@ github.com/OJ/gobuster/v3@latest
 github.com/ffuf/ffuf/v2@latest
 git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu@develop
 git.aetherial.dev/aeth/kyoketsu/cmd/kyoketsu-web@develop
->>>>>>> d040f780e55b8b900b65778e713f3943282c87eb
