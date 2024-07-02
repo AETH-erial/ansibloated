@@ -1,6 +1,6 @@
 ---
 - name: "Gather facts playbook"
-  hosts: "workstations"
+  hosts: "all"
   tasks:
     - name: "gathering facts"
       ansible.builtin.gather_facts:
