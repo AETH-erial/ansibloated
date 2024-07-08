@@ -1,0 +1,8 @@
+---
+- name: "00: Determine Variable Validation task set"
+  ansible.builtin.include_tasks: "{{ _tasks }}"
+  with_first_found:
+    - "tasks/tasks_variable_validation/{{ machine_type }}/{{ machine_subtype }}/task_variable_validation.yml"
+    - "tasks/tasks_variable_validation/{{ machine_type }}/task_variable_validation.yml"
+  loop_control:
+    loop_var: "_tasks"

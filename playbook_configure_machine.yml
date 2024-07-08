@@ -1,0 +1,23 @@
+---
+- name: "Dynamically configuring machine"
+  hosts: "all"
+  pre_tasks:
+    - name: "00: Gather facts"
+      ansible.builtin.gather_facts:
+
+    - name: "10: Assert top level variables"
+      when: "vars[item] is undefined"
+      ansible.builtin.fail:
+        msg: "Required variable: {{ item }} was left undefined."
+      loop:
+       - machine_type
+
+  tasks:
+    - name: "00: DYNAMICALLY EVALUATE RUNTIME VARIABLES"
+      ansible.builtin.include_tasks: "tasks/tasks_variable_validation.yml"
+
+    - name: "10: INSTALL PACKAGES"
+      ansible.builtin.include_tasks: "tasks/tasks_install_packages.yml"
+
+    - name: "20: SYSTEM CONFIGURATION"
+      ansible.builtin.include_tasks: "tasks/tasks_machine_configuration.yml"

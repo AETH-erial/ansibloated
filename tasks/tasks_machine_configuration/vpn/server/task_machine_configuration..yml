@@ -17,8 +17,6 @@
 - name: "30: Set VPN configuration variables"
   become: True
   ansible.builtin.set_fact:
-    vpn_network_address: "{{ vpn_network_address }}"
-    vpn_server_port: "{{ vpn_server_port }}"
     vpn_private_key_content: "{{ lookup('ansible.builtin.file', '/etc/wireguard/privatekey') }}"
 
 - name: "40: Create server configuration file"

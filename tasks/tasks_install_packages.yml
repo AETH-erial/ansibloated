@@ -3,7 +3,7 @@
   ansible.builtin.set_fact:
     packages: "{{ lookup('ansible.builtin.file', '{{ item }}') | trim }}"
   with_first_found:
-    - "files/{{ machine_type }}/{{ use_case }}/packages.txt"
+    - "files/{{ machine_type }}/{{ machine_subtype }}/packages.txt"
     - "files/{{ machine_type }}/packages.txt"
     - "files/packages.txt"
 

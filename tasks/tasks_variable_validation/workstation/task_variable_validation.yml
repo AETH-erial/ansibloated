@@ -1,0 +1,6 @@
+---
+- name: "Validate variables"
+  ansible.builtin.assert:
+    that:
+      - domain_wide_password is string
+      - system_user is string

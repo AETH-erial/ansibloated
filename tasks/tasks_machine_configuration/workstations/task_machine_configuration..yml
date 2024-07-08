@@ -1,0 +1,13 @@
+---
+- name: "00: Set default shell to ZSH"
+  become: True
+  ansible.builtin.command: "chsh -s /usr/bin/zsh aeth"
+
+- name: "10: clone dotfiles"
+  ansible.builtin.include_tasks: "tasks/tasks_clone_dotfiles.yml"
+
+- name: "20: Install vim plug manager"
+  ansible.builtin.include_tasks: "tasks/tasks_install_vimplug.yml"
+
+- name: "30: Install go binaries"
+  ansible.builtin.include_tasks: "tasks/tasks_go_packages.yml"

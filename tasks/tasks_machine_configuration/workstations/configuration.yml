@@ -1,5 +1,0 @@
----
-- name: "00: Set default shell to ZSH"
-  become: True
-  ansible.builtin.command: "chsh -s /usr/bin/zsh aeth"
-  
