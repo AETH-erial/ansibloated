@@ -1,4 +1,9 @@
 ---
+- name: "00: System upgrade"
+  ansible.builtin.apt:
+    upgrade: "dist"
+    update_cache: "yes"
+
 - name: "10: Determine needed system packages"
   ansible.builtin.set_fact:
     packages: "{{ lookup('ansible.builtin.file', '{{ item }}') | trim }}"
