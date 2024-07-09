@@ -14,7 +14,7 @@
     mode: '0600'
 
 - name: "30: Set VPN configuration variables"
-  ansible.builtin.command: "cat {{ /etc/wireguard/privatekey}}|quote "
+  ansible.builtin.command: "cat {{ /etc/wireguard/privatekey|quote}} "
   register: vpn_private_key_content
     
 - name: "40: Create server configuration file"
