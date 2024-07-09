@@ -43,7 +43,7 @@
 
 - name: "70: Enable IP forwarding"
   become: True
- ansible.builtin.sysctl:
+  ansible.builtin.sysctl:
     name: "net.ipv4.ip_forward"
     value: "1"
     sysctl_set: "yes"
