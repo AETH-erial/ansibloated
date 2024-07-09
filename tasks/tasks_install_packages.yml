@@ -8,7 +8,7 @@
     - "files/packages.txt"
 
 - name: "20: Install packages"
-  become: True
+#become: true
   ansible.builtin.package:
     name: "{{ _package_name }}" 
   loop: "{{ packages.splitlines() }}"
