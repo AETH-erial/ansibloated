@@ -1,2 +1,2 @@
-firewall-cmd
+firewalld
 wireguard-tools
