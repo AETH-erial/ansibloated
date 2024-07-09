@@ -7,7 +7,6 @@
 - name: "10: Create Public and Private server keys"
   ansible.builtin.shell:
     command: "wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey"
-    become: True
 
 - name: "20: Modify Private key permissions"
   ansible.builtin.file:
@@ -15,19 +14,16 @@
     mode: '0600'
 
 - name: "30: Set VPN configuration variables"
-  become: True
   ansible.builtin.set_fact:
     vpn_private_key_content: "{{ lookup('ansible.builtin.file', '/etc/wireguard/privatekey') }}"
 
 - name: "40: Create server configuration file"
-  become: True
   ansible.builtin.template:
     src: "templates/wg0.conf.j2"
     dest: "/etc/wireguard/wg0.conf"
 
 
 - name: "50: Modify Server config file permissions"
-  become: True
   ansible.builtin.file:
     path: "/etc/wireguard/wg0.conf"
     mode: "0600"
@@ -37,12 +33,10 @@
 
 
 - name: "60: Start the wireguard server"
-  become: True
   ansible.builtin.shell:
     cmd: "wg-quick up wg0"
 
 - name: "70: Enable IP forwarding"
-  become: True
   ansible.builtin.sysctl:
     name: "net.ipv4.ip_forward"
     value: "1"
