@@ -15,7 +15,11 @@
 
 - name: "30: Set VPN configuration variables"
   ansible.builtin.command: cat /etc/wireguard/privatekey
-  register: vpn_private_key_content
+  register: private_key_cmd
+
+- name: "35: Register the stdout of previous"
+  ansible.builtin.set_fact:
+    vpn_private_key_content: "{{ private_key_cmd.stdout }}"
     
 - name: "40: Create server configuration file"
   ansible.builtin.template:
