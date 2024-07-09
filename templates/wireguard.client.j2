@@ -1,10 +1,10 @@
 [Interface]
-PrivateKey = {{ ansible_facts['vpn_client_private_key'] }}
-Address = {{ ansible_facts['vpn_client_address'] }}
+PrivateKey = {{ vpn_client_private_key }}
+Address = {{ vpn_client_address }}
 
 
 [Peer]
-PublicKey = {{ ansible_facts['vpn_server_public_key'] }}
-Endpoint = {{ ansible_facts['vpn_server_wan_address'] }}:{{ ansible_facts['vpn_server_port'] }}
+PublicKey = {{ vpn_server_public_key }}
+Endpoint = {{ vpn_server_wan_address }}:{{ vpn_server_port }}
 AllowedIPs = 0.0.0.0/0
 
