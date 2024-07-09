@@ -6,7 +6,7 @@
 
 - name: "10: Create Public and Private server keys"
   ansible.builtin.shell:
-    command: "wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey"
+    command: "wg genkey | tee /etc/wireguard/privatekey | wg pubkey | tee /etc/wireguard/publickey"
 
 - name: "20: Modify Private key permissions"
   ansible.builtin.file:
