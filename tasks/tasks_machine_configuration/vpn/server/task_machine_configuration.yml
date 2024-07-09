@@ -14,9 +14,9 @@
     mode: '0600'
 
 - name: "30: Set VPN configuration variables"
-  ansible.builtin.set_fact:
-    vpn_private_key_content: "{{ lookup('ansible.builtin.file', '/etc/wireguard/privatekey') }}"
-
+  ansible.builtin.command: "cat {{ /etc/wireguard/privatekey}}|quote "
+  register: vpn_private_key_content
+    
 - name: "40: Create server configuration file"
   ansible.builtin.template:
     src: "templates/wg0.conf.j2"
