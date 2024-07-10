@@ -10,8 +10,8 @@
   ansible.builtin.command: ufw disable
 
 - name: "10: last UFW configurion i promise"
-  expect:
-    ansible.builtin.command: ufw enable
+  ansible.builtin.expect:
+    command: ufw enable
     responses:
       "Command may disrupt existing ssh connections. Proceed with operation (y|n)?": "y"
 
