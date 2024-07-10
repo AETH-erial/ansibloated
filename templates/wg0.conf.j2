@@ -3,6 +3,12 @@ Address = {{ vpn_network_address }}
 SaveConfig = true
 ListenPort = {{ vpn_server_port }}
 PrivateKey = {{ vpn_private_key_content }}
+
+PostUp = ufw route allow in on wg0 out on eth0
+PostUp = iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+PreDown = ufw route delete allow in on wg0 out on eth0
+PreDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+
 PostUp     = firewall-cmd --zone=public --add-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --add-masquerade
 PostDown   = firewall-cmd --zone=public --remove-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --remove-masquerade
 

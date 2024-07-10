@@ -1,4 +1,14 @@
 ---
+- name: "00: UFW configuration"
+  ansible.builtin.command: ufw allow "{{ vpn_server_port }}/udp"
+
+
+- name: "00: more UFW configuration"
+  ansible.builtin.command: ufw allow "OpenSSH"
+
+- name: "10: last UFW configurion i promise"
+  ansible.builtin.command: ufw disable && ufw enable
+
 - name: "00: Create Wireguard directory"
   ansible.builtin.file:
     path: "/etc/wireguard"

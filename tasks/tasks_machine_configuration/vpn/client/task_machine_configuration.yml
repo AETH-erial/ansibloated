@@ -4,7 +4,7 @@
   ansible.builtin.shell:
     command: "wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey"
 
-- name: "10: Render Client Configuration file"
+
   
 
 
