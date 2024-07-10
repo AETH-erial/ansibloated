@@ -10,7 +10,11 @@
   ansible.builtin.command: ufw disable
 
 - name: "10: last UFW configurion i promise"
-  ansible.builtin.command: ufw enable
+  expect:
+    ansible.builtin.command: ufw enable
+    responses:
+      "Command may disrupt existing ssh connections. Proceed with operation (y|n)?": "y"
+
 
 - name: "00: Create Wireguard directory"
   ansible.builtin.file:
