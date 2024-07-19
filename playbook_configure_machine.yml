@@ -21,3 +21,7 @@
 
     - name: "20: SYSTEM CONFIGURATION"
       ansible.builtin.include_tasks: "tasks/tasks_machine_configuration.yml"
+
+    - name: "debug"
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts }}"

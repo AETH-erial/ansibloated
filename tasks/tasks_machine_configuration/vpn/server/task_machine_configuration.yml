@@ -27,14 +27,22 @@
     path: "/etc/wireguard/privatekey"
     mode: '0600'
 
-- name: "30: Set VPN configuration variables"
+- name: "30: Read out VPN server private key"
   ansible.builtin.command: cat /etc/wireguard/privatekey
   register: private_key_cmd
 
 - name: "35: Register the stdout of previous"
   ansible.builtin.set_fact:
     vpn_private_key_content: "{{ private_key_cmd.stdout }}"
-    
+
+- name : "40: Read out VPN server public key"
+  ansible.builtin.command: cat /etc/wireguard/publickey
+  register: public_key_cmd
+
+- name: "35: Register the stdout of previous"
+  ansible.builtin.set_fact:
+    vpn_public_key_content: "{{ public_key_cmd.stdout }}"
+
 - name: "40: Create server configuration file"
   ansible.builtin.template:
     src: "templates/wg0.conf.j2"
