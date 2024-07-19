@@ -24,4 +24,4 @@
 
     - name: "debug"
       ansible.builtin.debug:
-        msg: "{{ ansible_facts }}"
+        msg: "Public Key: {{ vpn_public_key_content }}\nPrivate Key: {{ vpn_private_key_content }}"
