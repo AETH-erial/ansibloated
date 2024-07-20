@@ -22,6 +22,9 @@
     - name: "20: SYSTEM CONFIGURATION"
       ansible.builtin.include_tasks: "tasks/tasks_machine_configuration.yml"
 
+    - name: "30: POST PLAYBOOK HOOK"
+      ansible.builtin.include_tasks: "tasks/tasks_upload_wireguard_server_keys.yml"
+
     - name: "debug"
       ansible.builtin.debug:
         msg: "Public Key: {{ vpn_public_key_content }}\nPrivate Key: {{ vpn_private_key_content }}"

@@ -1,0 +1,13 @@
+- name: "00: Upload the wireguard public and private keys to Hashicorp vault"
+  delegate_to: "127.0.0.1"
+  ansible.builtin.uri:
+    url: "https://{{ lookup('ansible.builtin.env', 'SECRETS_PROVIDER_URL') }}/v1/secret/data/WG_SERVER_KEYPAIR"
+    method: "POST"
+    body_format: "json"
+    headers:
+       Authorization: "Bearer {{ lookup('ansible.builtin.env', 'SECRETS_PROVIDER_API_KEY')}}"
+    body:
+      data:
+        public: "{{ lookup('ansible.builtin.env', 'WG_SERVER_PUBLIC_KEY')}}"
+        private: "{{ lookup('ansible.builtin.env', 'WG_SERVER_PRIVATE_KEY')}}"
+        type: "wireguard"
