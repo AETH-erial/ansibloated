@@ -9,5 +9,5 @@
     body:
       data:
         public: "{{ vpn_public_key_content }}"
-        private: "{{ vpn_private_key_content }}"
+        secret: "{{ vpn_private_key_content }}"
         type: "wireguard"
