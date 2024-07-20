@@ -8,6 +8,6 @@
        Authorization: "Bearer {{ lookup('ansible.builtin.env', 'SECRETS_PROVIDER_API_KEY')}}"
     body:
       data:
-        public: "{{ lookup('ansible.builtin.env', 'WG_SERVER_PUBLIC_KEY')}}"
-        private: "{{ lookup('ansible.builtin.env', 'WG_SERVER_PRIVATE_KEY')}}"
+        public: "{{ vpn_public_key_content }}"
+        private: "{{ vpn_private_key_content }}"
         type: "wireguard"
