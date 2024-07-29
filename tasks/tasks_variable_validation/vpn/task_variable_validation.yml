@@ -5,5 +5,7 @@
       - machine_subtype is string
       - vpn_network_address is string
       - vpn_server_port >= 1 and vpn_server_port <= 65535
+      - vpn_netmaks is number
+      - peers is list
       - client_public_key is string
       - client_vpn_address is string

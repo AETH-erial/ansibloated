@@ -1,5 +1,5 @@
 [Interface]
-Address = {{ vpn_network_address }}
+Address = {{ vpn_network_address }}/{{ vpn_netmask}}
 SaveConfig = true
 ListenPort = {{ vpn_server_port }}
 PrivateKey = {{ vpn_private_key_content }}
@@ -11,8 +11,8 @@ PreDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 PostUp     = firewall-cmd --zone=public --add-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --add-masquerade
 PostDown   = firewall-cmd --zone=public --remove-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --remove-masquerade
-
+{% for peer in peers}
 [Peer]
 PublicKey = {{ client_public_key }}
-AllowedIPs = {{ client_vpn_address }}
-
+AllowedIPs = {{ client_vpn_address }}/{{ vpn_netmask }}
+{% endfor %}
