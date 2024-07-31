@@ -11,8 +11,8 @@ PreDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 PostUp     = firewall-cmd --zone=public --add-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --add-masquerade
 PostDown   = firewall-cmd --zone=public --remove-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --remove-masquerade
-{% for client in clients}
+{% for client in clients %}
 [Peer]
-PublicKey = {{ client_public_key }}
-AllowedIPs = {{ client_vpn_address }}/{{ vpn_netmask }}
+PublicKey = {{ client.client_public_key }}
+AllowedIPs = {{ client.client_vpn_address }}/{{ vpn_netmask }}
 {% endfor %}
