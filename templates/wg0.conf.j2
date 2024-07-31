@@ -13,6 +13,6 @@ PostUp     = firewall-cmd --zone=public --add-port {{ vpn_server_port }}/udp && 
 PostDown   = firewall-cmd --zone=public --remove-port {{ vpn_server_port }}/udp && firewall-cmd --zone=public --remove-masquerade
 {% for client in clients %}
 [Peer]
-PublicKey = {{ client.client_public_key }}
-AllowedIPs = {{ client.client_vpn_address }}/{{ vpn_netmask }}
+PublicKey = {{ client.pubkey}}
+AllowedIPs = {{ client.ipv4 }}/{{ vpn_netmask }}
 {% endfor %}
