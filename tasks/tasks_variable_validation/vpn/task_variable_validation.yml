@@ -6,4 +6,4 @@
       - vpn_network_address is string
       - vpn_server_port >= 1 and vpn_server_port <= 65535
       - vpn_netmask is number
-      - peers is defined
+      - clients is defined
