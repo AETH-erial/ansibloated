@@ -4,10 +4,11 @@ workstations:
     voodoo-box.void:
     BLACKMESA.void:
     spit-wizard.void:
-virtualization:
+containers:
   hosts:
-    adeptus-mechanicus.void:
-    matsumoto.void:
+    horus-ctn01.void:
+    horus-ns01.void:
+    horus-ns02.void:
 dns_servers:
   hosts:
     minas-tirith.void:
