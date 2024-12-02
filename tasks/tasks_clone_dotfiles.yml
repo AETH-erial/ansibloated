@@ -39,7 +39,7 @@
 - name: "50: move wallpaper"
   ansible.builtin.copy:
     remote_src: "yes"
-    src: "{{ dotfiles }}/_dark_disco.jpeg"
+    src: "{{ dotfiles }}/wallpaper.jpeg"
     dest: "/home/{{ system_user }}/Pictures/wallpapers/"
 
 - name: "60: Move environment file into etc"

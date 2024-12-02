@@ -6,12 +6,8 @@
 - name: "00: more UFW configuration"
   ansible.builtin.command: ufw allow "OpenSSH"
 
-- name: "10: last UFW configurion i promise"
-  ansible.builtin.command: ufw disable
-
-- name: "10: last UFW configurion i promise"
-  ansible.builtin.command: ufw --force enable
-
+- name: "10: Cycle UFW"
+  ansible.builtin.command: ufw disable && ufw --force enable
 
 - name: "00: Create Wireguard directory"
   ansible.builtin.file:

@@ -1,7 +1,7 @@
 ---
 - name: "00: Set default shell to ZSH"
   become: True
-  ansible.builtin.command: "chsh -s /usr/bin/zsh aeth"
+  ansible.builtin.command: "chsh -s /usr/bin/zsh {{ system_user }}"
 
 - name: "10: clone dotfiles"
   ansible.builtin.include_tasks: "tasks/tasks_clone_dotfiles.yml"
